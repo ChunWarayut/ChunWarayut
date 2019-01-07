@@ -1,0 +1,83 @@
+
+<ion-header>
+
+  <ion-navbar  color="boa">
+
+    
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    
+
+
+      <ion-title  *ngFor="let item of arrData"> รวม &nbsp;&nbsp; {{item}} &nbsp;&nbsp; บาท  </ion-title>
+  
+
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <!-- <div>{{ CartList$ | async }}</div> -->
+  <button ion-button block (click)="GoBack()">สั่งอาหารเพิ่ม</button>
+  <button ion-button block color="energy" (click)=" addDetailItem(detail)">ยืนยันคำสั่งซื้อ</button>
+
+
+
+     
+
+<ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let cart of CartList$ | async" > 
+
+      <ion-list> 
+          
+        <ion-item>
+        
+        <ion-label fixed> 
+          ชื่ออาหาร : 
+        </ion-label>
+
+        <ion-label id="NAME"> 
+        {{cart.CART_NAME }}
+        </ion-label>
+
+        </ion-item>
+
+        <ion-item>
+
+        <ion-label fixed>           
+          จำนวน :       
+        </ion-label>  
+
+        <ion-label id="AMOUT">           
+          {{cart.CART_AMOUT}}   &nbsp;&nbsp;&nbsp;&nbsp;รายการ
+        </ion-label>  
+
+        </ion-item>
+
+        <ion-item>
+
+        <ion-label fixed> 
+          ราคา : 
+        </ion-label>
+
+        <ion-label id="PRICE"> 
+        {{cart.CART_PRICE}}   &nbsp;&nbsp;&nbsp;&nbsp;บาท  
+          </ion-label>
+  
+        </ion-item>
+
+      </ion-list>
+
+    </ion-col>
+   
+
+  </ion-row>
+</ion-grid>
+
+</ion-content>

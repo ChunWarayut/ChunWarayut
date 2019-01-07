@@ -1,0 +1,103 @@
+<!--
+  Generated template for the FoodListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="boa">
+      <ion-title>รายการอาหาร</ion-title>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+
+        
+     <ion-buttons end>
+        <button navPush="CartPage" ion-button>
+            <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+        </button>
+      </ion-buttons>
+
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+    <ion-grid>
+        <ion-row>
+    
+            <ion-col>
+    
+            </ion-col>
+    
+          <ion-col col-auto>
+
+            
+
+
+    <!-- Refresh -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles">
+      </ion-refresher-content>
+       <!-- refreshingText="Refreshing...">
+      </ion-refresher-content>-->
+    </ion-refresher>
+    <!--  -->
+    <p align="center" >
+      <img src='{{photoURL}}' >
+
+    </p>
+    <button ion-button outline full align="center">สวัสดีคุณ {{name}}</button>
+    <ion-grid>
+     <ion-row>
+         <ion-col col-6   *ngFor="let food of FoodList$ | async">
+    <ion-card color="Beige"> 
+      <img  src="https://firebasestorage.googleapis.com/v0/b/lungnuad-a547e.appspot.com/o/images%2F{{food.FOOD_IMG}}.jpg?alt=media&token=b934ec8f-234a-47cf-9d6a-4b5376fdb8d8">
+      <button ion-button clear full small align="center" detail-push navPush="FoodDetailPage" [navParams]="{food: food}" >
+         
+          {{food.FOOD_NAME}}      
+      </button>
+
+      <button ion-button clear full small align="center" detail-push navPush="FoodDetailPage" [navParams]="{food: food}" >
+        ราคา : {{food.FOOD_PRICE}}
+      </button>
+      
+      <ion-label hidden>           
+          ประเภทอาหาร : {{food.FOOD_TYPE_NAME}}          
+      </ion-label>
+      
+    </ion-card>    
+  </ion-col>
+</ion-row>
+</ion-grid>
+<!--
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+-->
+
+
+
+</ion-col>
+     
+<ion-col>
+  
+</ion-col>
+
+</ion-row>
+</ion-grid>
+
+
+</ion-content>

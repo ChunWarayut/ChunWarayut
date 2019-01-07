@@ -1,0 +1,59 @@
+<!--
+  Generated template for the MenuTypeAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="boa">
+        <ion-title>เพิ่มประเภทอาหาร</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-grid>
+        <ion-row>
+    
+            <ion-col>
+    
+            </ion-col>
+    
+          <ion-col col-auto>
+
+
+  <ion-item>
+
+    <ion-label>ชื่อประเภทอาหาร</ion-label> 
+
+    <ion-input [(ngModel)]="type.FOOD_TYPE_NAME"></ion-input>
+
+  </ion-item>
+
+
+  <div style="display:flex; flex-direction:column;justify-content:center">
+     
+    <button ion-button block full round large (click)=showConfirm(type)>Add</button>
+
+  </div>
+
+
+   
+</ion-col>
+     
+<ion-col>
+  
+</ion-col>
+
+</ion-row>
+</ion-grid>
+
+
+</ion-content>

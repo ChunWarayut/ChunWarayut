@@ -1,0 +1,139 @@
+<!--
+  Generated template for the OrderListDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="boa">
+    <ion-title>รายการสั่งซื้อของลูกค้า</ion-title>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+  
+          <ion-list> 
+            
+            <ion-item>
+      
+            <ion-label fixed> 
+              รหัสสั่งซื้อ :
+            </ion-label>
+  
+            <ion-label > 
+              {{detail.DID}}
+            </ion-label>
+  
+            </ion-item>
+  
+  
+            <ion-item>
+  
+            <ion-label fixed>           
+              ชื่อลูกค้า :         
+            </ion-label>
+  
+            <ion-label>           
+              {{detail.name}}          
+            </ion-label>
+  
+            </ion-item>
+  
+  
+            <ion-item>
+  
+            <ion-label fixed> 
+              ราคา : 
+            </ion-label>
+    
+            <ion-label> 
+               {{detail.total  | number}} &nbsp; &nbsp; บาท
+              </ion-label>
+      
+            </ion-item>
+  
+              <ion-item>
+  
+  
+            <ion-label fixed> 
+              วันที่ : 
+            </ion-label>
+  
+            <ion-label > 
+                {{detail.date}}
+              </ion-label>
+    
+            </ion-item>
+  
+              <ion-item>
+  
+  
+            <ion-label fixed>           
+              ที่อยู่ :          
+            </ion-label>
+  
+            <ion-label text-wrap>           
+              {{detail.location}}          
+              </ion-label>
+  
+            </ion-item>
+  
+
+            
+            
+            <ion-item color="boa">
+            
+                <ion-label align='center' > 
+                 อาหารที่สั่ง
+                </ion-label>
+      
+                </ion-item>
+                <ion-item *ngFor="let row of  detail.food">
+                
+    {{row.food}} &nbsp;&nbsp; จำนวน &nbsp;&nbsp; {{row.amount}}
+    &nbsp;&nbsp; รายการ
+           
+                </ion-item>
+
+
+              <ion-item color="boa">
+  
+  
+            <ion-label fixed >           
+              สถานะ :        
+            </ion-label>
+  
+            <ion-label>           
+                        
+              </ion-label>
+    
+              <ion-input readonly  name="email" id='email' [(ngModel)]="detail.status" >
+
+                
+              </ion-input>
+            </ion-item>
+
+
+
+                    <button ion-button full color="Beige"   (click)=getUpdate0(detail)>ปรับสถานะ</button>
+    
+
+          </ion-list>
+  
+        </ion-col>
+       
+  
+      </ion-row>
+    </ion-grid>
+ 
+</ion-content>

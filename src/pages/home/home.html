@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="boa">
+    <ion-title>ราดแกงลุงหนวด</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding align="center">
+
+    <ion-grid >
+      <ion-row>
+        <ion-col center text-center>
+          
+          <img height="350" src="https://firebasestorage.googleapis.com/v0/b/test-98b25.appspot.com/o/ce7234c9cadfeb7ea8bbc7f61b3c713f.png?alt=media&token=1286d576-501a-42df-ad47-f13bc92ca5cf" />
+              
+  <ion-list>
+
+      <ion-item>
+        <ion-label stacked>ชื่อผู้ใช้</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email"  required="required" placeholder="lungnuad@gmail.com"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>รหัสผ่าน</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required="required"placeholder="********************"></ion-input>
+      </ion-item>
+  
+      <button ion-button full color="primary" clear block (click)="signup()">หากยังไม่มีบัญชี สร้างบัญชีที่นี่!!</button>
+    
+      <button ion-button full color="energy" *ngIf="email && password"  (click)="login()">เข้าสู่ระบบ</button>
+     <!-- Show dead button if form is not filled -->
+     <button ion-button full color="energy"  *ngIf="!email || !password" (click)="loginf()">เข้าสู่ระบบ</button>
+  
+    </ion-list>
+     
+
+     
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col center text-center>
+              <br/>
+
+            <button ion-button full color="danger" *ngIf="email == 'admin' && password == 'admin' " (click)="loginAdmin()">เฉพาะผู้ดูแล</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>
